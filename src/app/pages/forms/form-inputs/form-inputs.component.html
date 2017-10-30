@@ -1,0 +1,173 @@
+<div class="row">
+    <div class="col-9">
+        <nb-card>
+          <nb-card-header>Select Client</nb-card-header>
+          <nb-card-body>
+            <form class="input-group">
+              <mat-form-field class=".example-full-width">
+                <input matInput class="form-control example-full-width" placeholder="Client" aria-label="State" [matAutocomplete]="auto" [formControl]="stateCtrl">
+                <mat-autocomplete #auto="matAutocomplete">
+                  <mat-option *ngFor="let state of filteredStates | async" [value]="state.name">
+                    <span>{{ state.name }}</span> |
+                    <small>Risk Insured: {{state.population}}</small>
+                  </mat-option>
+                </mat-autocomplete>
+              </mat-form-field>
+            </form>
+            <button type="submit" class="btn btn-primary" (click)= "populate()">Attach Client</button>
+          </nb-card-body>
+        </nb-card>
+        </div>
+</div>
+
+
+<div class="row"> 
+  <div class="col-6">
+    <nb-card>
+      <nb-card-header>Case Information</nb-card-header>
+      <nb-card-body>
+        <div class="form-group row">
+          <label for="inputEmail1" class="col-sm-3 col-form-label">Case Name</label>
+          <div class="col-sm-9">
+              <input type="text" placeholder="Case Name" class="form-control" value = {{casename}}>
+          </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Account Handler</label>
+            <div class="col-sm-9">
+                <input type="text" placeholder="Account Handler" class="form-control" value = {{acchandler}}>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Account Executive</label>
+            <div class="col-sm-9">
+                <input type="text" placeholder="Account Executive" class="form-control" value = {{accexecutive}}>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Inception date</label>
+            <div class="col-sm-9">
+                <input type="text" placeholder="Inception date" class="form-control" value = {{date}}>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Client Contact</label>
+            <div class="col-sm-9">
+                <input type="text" placeholder="Client Contact" class="form-control" value = {{email}}>
+            </div>
+        </div>
+
+        <div class="input-group input-group-rounded">
+          <input type="text" placeholder="Telephone Number" class="form-control" value = {{contact}}/>
+        </div>
+        <!-- <div class="form-group">
+          <input type="text" placeholder="Project" class="form-control"/>
+          <small class="form-text">A block of help text that breaks into a new line and may extend beyond one line.
+          </small>
+        </div>
+        <div class="input-group">
+          <input type="text" placeholder="Disabled input" class="form-control" disabled/>
+        </div> -->
+        <div class="input-group">
+          <textarea rows="5" placeholder="Additional Comments" class="form-control"></textarea>
+        </div>
+        <!-- <div class="input-group input-group-sm">
+          <input type="text" placeholder="Small Input" class="form-control"/>
+        </div>
+        <div class="input-group input-group-lg">
+          <input type="text" placeholder="Large Input" class="form-control"/>
+        </div> -->
+      </nb-card-body>
+    </nb-card>
+  </div>
+
+  <div class="col-6">
+      <nb-card>
+        <nb-card-header>Claim Experience</nb-card-header>
+        <nb-card-body>
+          <div class="form-group row">                
+            <button type="submit" class="btn btn-primary" (click)= "showSmallModal()">Get Claim Experience Data</button>
+            </div>
+
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">Risk Reference #</label>
+            <div class="col-sm-9">
+                <input type="text" placeholder="Risk Reference #" class="form-control" >
+            </div>
+          </div>
+  
+          <div class="form-group row">
+              <label for="inputEmail1" class="col-sm-3 col-form-label">UW Info</label>
+              <div class="col-sm-9">
+                  <input type="text" placeholder="UW Info" class="form-control" >
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <label for="inputEmail1" class="col-sm-3 col-form-label">Start Date</label>
+              <div class="col-sm-9">
+                  <input type="text" placeholder="Start Date" class="form-control" >
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <label for="inputEmail1" class="col-sm-3 col-form-label">End date</label>
+              <div class="col-sm-9">
+                  <input type="text" placeholder="End date" class="form-control" >
+              </div>
+          </div>
+  
+          <div class="form-group row">
+              <label for="inputEmail1" class="col-sm-3 col-form-label">Claim Details</label>
+              <div class="input-group">
+                  <textarea rows="8" placeholder="Claim Details" class="form-control"></textarea>
+                </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+
+</div>
+
+<div class="row"> 
+    <div class="col-6">
+      <nb-card>
+        <nb-card-header>Intelligent Product Finder</nb-card-header>
+        <nb-card-body>
+          <div class="form-group row">
+            <label for="inputEmail1" class="col-sm-3 col-form-label">List of Possible Products</label>
+            <div class="col-sm-9">
+                <mat-selection-list #products>
+                    <mat-list-option *ngFor="let product of listOfProducts">
+                      {{product}}
+                    </mat-list-option>
+                  </mat-selection-list>
+            </div>
+          </div>
+        </nb-card-body>
+      </nb-card>
+    </div>
+  
+    <div class="col-6">
+        <nb-card>
+          <nb-card-header>Preferred Insurer</nb-card-header>
+          <nb-card-body>
+            <div class="form-group row">
+              <label for="inputEmail1" class="col-sm-3 col-form-label">List of Possible Products</label>
+              <div class="col-sm-9">
+                  <mat-selection-list #products>
+                      <mat-list-option *ngFor="let product of listOfInsurance">
+                        {{product}}
+                      </mat-list-option>
+                    </mat-selection-list>
+              </div>
+            </div>
+          </nb-card-body>
+        </nb-card>
+      </div>  
+  </div>
+
