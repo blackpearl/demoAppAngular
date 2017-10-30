@@ -12,7 +12,7 @@ import { LanguageService } from '../../../@core/data/language.service';
   selector: 'ngx-theme-switcher',
   styleUrls: ['./theme-switcher.component.scss'],
   template: `
-  <select #langSelect (change)="setTranslation(langSelect.value)">
+  <select #langSelect (change)="setTranslation(langSelect.value)" class="nb-menu">
   <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
 </select>
 `
