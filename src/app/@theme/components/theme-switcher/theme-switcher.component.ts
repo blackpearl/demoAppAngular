@@ -25,7 +25,7 @@ export class ThemeSwitcherComponent implements OnInit {
   @Output() messageEvent = new EventEmitter<string>()
 
   constructor(private themeService: NbThemeService, private analyticsService: AnalyticsService,
-    private translate: TranslateService, private langService: LanguageService) {
+    public translate: TranslateService, private langService: LanguageService) {
       translate.addLangs(["en", "ch"]);
       translate.setDefaultLang('en');
       this.message = 'en';

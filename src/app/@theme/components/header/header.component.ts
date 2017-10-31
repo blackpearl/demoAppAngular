@@ -26,7 +26,7 @@ export class HeaderComponent implements OnInit {
               private menuService: NbMenuService,
               private userService: UserService,
               private analyticsService: AnalyticsService,
-              private translate: TranslateService,
+              public translate: TranslateService,
             private modalService: NgbModal) 
   {
     translate.addLangs(["en", "ch"]);
