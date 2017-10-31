@@ -44,9 +44,7 @@ export class PagesComponent{
   }
   ngOnInit() {
     this.langService.currentLanguage.subscribe(message => this.setMenuName(message));
-    // for(let menu of MENU_ITEMS) {
-    //   menu.title = this.message
-    // }
+
   }
   
 }
