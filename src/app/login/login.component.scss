@@ -1,0 +1,47 @@
+
+@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '~bootstrap/scss/mixins/breakpoints';
+@import '~@nebular/theme/styles/global/bootstrap/breakpoints';
+
+  .demo-card-wide.mdl-card {
+    width: 512px;
+    margin: 0 auto;
+  }
+  .textlength {
+    width: 512px;
+    margin: 0 auto;
+  }
+  .demo-card-wide > .mdl-card__t.demo-card-wide.mdl-card {
+  width: 512px;
+  margin: 0 auto;
+}
+.demo-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 376px;
+  background: url("../../assets/images/world.jpg")
+    center / cover;
+}
+.demo-card-wide > .mdl-card__menu {
+  color: #fff;
+}
+
+body {
+  padding: 20px 0 0;
+  background: #fafafa;
+  position: relative;
+}
+title {
+    color: #fff;
+    height: 576px;
+    background: url('../../assets/images/world.jpg') center / cover;
+  }
+  .demo-card-wide > .mdl-card__menu {
+    color: #fff;
+  }
+
+  body {
+    padding: 20px 0 0;
+    background: #fafafa;
+    position: relative;
+  }
+
