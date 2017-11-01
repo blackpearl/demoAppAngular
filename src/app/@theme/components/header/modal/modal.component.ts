@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import * as MicrosoftGraph from "@microsoft/microsoft-graph-types";
 
 @Component({
   selector: 'ngx-modal',
@@ -11,7 +12,20 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
       </button>
     </div>
     <div class="modal-body">
-      {{ modalContent }}
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>Subject</th>
+          <th>Message</th>
+        </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let event of mailevents">
+            <td class="mdl-data-table__cell--non-numeric">{{event.subject}}</td>
+            <td>{{event.bodyPreview}}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
     <div class="modal-footer">
       <button class="btn btn-md btn-primary" (click)="closeModal()">{{ modalButton }}</button>
@@ -21,6 +35,7 @@ import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 export class ModalComponent {
 
   modalHeader: string;
+  mailevents: MicrosoftGraph.Event[];  
   modalButton: string;
   modalContent = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy
     nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis

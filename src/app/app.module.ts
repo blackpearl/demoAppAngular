@@ -18,7 +18,10 @@ import { ThemeModule } from './@theme/theme.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
+import { LoginComponent } from './login/login.component'
 
+import { HttpService } from './shared/http.service';
+import { AuthService } from './@core/data/auth.service';
 
 
 export function HttpLoaderFactory(httpClient: HttpClient) {
@@ -26,7 +29,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 }
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, LoginComponent],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
@@ -46,6 +49,8 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
   ],
   bootstrap: [AppComponent],
   providers: [
+    HttpService,
+    AuthService,
     { provide: APP_BASE_HREF, useValue: '/' },
   ],
 })

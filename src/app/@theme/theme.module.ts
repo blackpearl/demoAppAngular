@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import {TranslateModule} from '@ngx-translate/core';
+import { HeaderService } from '../@core/data/header.service'
 import { ModalComponent } from './components/header/modal/modal.component';
 import {
   NbActionsModule,
@@ -92,6 +93,7 @@ const NB_THEME_PROVIDERS = [
   entryComponents: [
     ModalComponent,
   ],
+  providers: [ HeaderService ],
 })
 export class ThemeModule {
   static forRoot(): ModuleWithProviders {

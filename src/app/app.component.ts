@@ -5,6 +5,8 @@
  */
 import { Component, OnInit } from '@angular/core';
 import { AnalyticsService } from './@core/utils/analytics.service';
+import { AuthService } from './@core/data/auth.service';
+
 
 @Component({
   selector: 'ngx-app',
@@ -12,10 +14,11 @@ import { AnalyticsService } from './@core/utils/analytics.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private analytics: AnalyticsService) {
+  constructor(private analytics: AnalyticsService, public authService:AuthService) {
   }
 
   ngOnInit(): void {
     this.analytics.trackPageViews();
+    this.authService.initAuth();
   }
 }
